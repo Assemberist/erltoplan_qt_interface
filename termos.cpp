@@ -41,6 +41,10 @@ void termos::put_int(int32_t val){
 	for(int i=4; i--; str.push_back(((char*)&val)[i]));
 }
 
+void termos::put_term(termos* term){
+    str.append(term->str, 1, term->str.length()-1);
+}
+
 termos::termos(const char* format, ...){
 	vector<point> stack;
 	void** args = (void**)&format;
@@ -97,7 +101,7 @@ termos::termos(const char* format, ...){
 						format++;
 						switch(*format){
 							case 't':
-								str.append((*(termos**)args)->str, 1, (*(termos**)args)->str.length()-1);
+                                put_term(*(termos**)args);
 								break;
 								
 							case 's':

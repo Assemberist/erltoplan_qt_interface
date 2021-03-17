@@ -24,6 +24,7 @@ struct termos{
 	void put_string(const char* src);
 	void put_list(int32_t);
 	void put_int(int32_t);
+    void put_term(termos*);
 	void end_of_list();
 };
 
