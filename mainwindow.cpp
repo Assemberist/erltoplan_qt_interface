@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-string collect_items_from_listView(QListWidget* lv){
+term collect_items_from_listView(QListWidget* lv){
     termos term;
     term.put_list(lv->children().size());
     for(int i =0; i < lv->children().size(); i++)
@@ -41,9 +41,15 @@ void MainWindow::on_pushButton_6_clicked()
 // build diagrammss
 void MainWindow::on_pushButton_7_clicked()
 {
-
-    //"{config, []"
-    //"{config, [{analyse, _}, {output, Name}, {shade_modules, Modules}, {shade_funs, Funs}]"
+    termos term("{'config', [{'analyse', %t}, {'output', %s}, {'shade_modules', %t}, {'shade_funs', %t}]}",
+                collect_items_from_listView(ui->listWidget),
+                // to do 
+                // it should be path where put diagrams
+                "",
+                collect_items_from_listView(ui->listWidget_3),
+                collect_items_from_listView(ui->listWidget_5));
+                
+    write_cmd(term.str);
 }
 
 // move module to ignored
