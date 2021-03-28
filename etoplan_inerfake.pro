@@ -11,13 +11,11 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    portoerl.cpp \
-    termos.cpp
+    portoerl.cpp
 
 HEADERS += \
     mainwindow.h \
-    portoerl.h \
-    termos.h
+    portoerl.h
 
 FORMS += \
     mainwindow.ui
